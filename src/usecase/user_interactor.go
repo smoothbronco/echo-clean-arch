@@ -18,6 +18,6 @@ func (interactor *UserInteractor) GetOneInfo(id int) domain.User {
 	return interactor.UserRepository.SelectById(id)
 }
 
-func (interactor *UserInteractor) Delete(id string) {
+func (interactor *UserInteractor) Delete(id int) {
 	interactor.UserRepository.Delete(id)
 }

@@ -36,7 +36,11 @@ func Init() {
 	})
 
 	e.DELETE("/users/:id", func(c echo.Context) error {
-		id := c.Param("id")
+		idstr := c.Param("id")
+		id, err := strconv.Atoi(idstr)
+		if err != nil {
+			panic(err.Error())
+		}
 		userController.Delete(id)
 		return c.String(http.StatusOK, "deleted")
 	})

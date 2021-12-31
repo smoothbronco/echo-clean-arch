@@ -6,5 +6,5 @@ type UserRepository interface {
 	Store(domain.User)
 	Select() []domain.User
 	SelectById(id int) domain.User
-	Delete(id string)
+	Delete(id int)
 }

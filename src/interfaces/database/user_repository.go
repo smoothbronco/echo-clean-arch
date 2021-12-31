@@ -22,7 +22,7 @@ func (db *UserRepository) SelectById(id int) domain.User {
 	return user
 }
 
-func (db *UserRepository) Delete(id string) {
+func (db *UserRepository) Delete(id int) {
 	user := []domain.User{}
 	db.DeleteById(&user, id)
 }

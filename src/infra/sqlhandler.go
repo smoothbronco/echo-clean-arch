@@ -34,6 +34,6 @@ func (handler *SqlHandler) FindOne(obj interface{}, id int) {
 	handler.db.First(obj, id)
 }
 
-func (handler *SqlHandler) DeleteById(obj interface{}, id string) {
+func (handler *SqlHandler) DeleteById(obj interface{}, id int) {
 	handler.db.Delete(obj, id)
 }
