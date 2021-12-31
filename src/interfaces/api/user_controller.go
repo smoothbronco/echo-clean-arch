@@ -13,9 +13,9 @@ type UserController struct {
 }
 
 func NewUserController(sqlHandler database.SqlHandler) *UserController {
-	return &UserController {
-		Interactor: usecase.UserInteractor {
-			UserRepository: &database.UserRepository {
+	return &UserController{
+		Interactor: usecase.UserInteractor{
+			UserRepository: &database.UserRepository{
 				SqlHandler: sqlHandler,
 			},
 		},
@@ -33,6 +33,11 @@ func (controller *UserController) Create(c echo.Context) {
 
 func (controller *UserController) GetUser() []domain.User {
 	res := controller.Interactor.GetInfo()
+	return res
+}
+
+func (controller *UserController) GetOneUser(id int) domain.User {
+	res := controller.Interactor.GetOneInfo(id)
 	return res
 }
 
